@@ -150,7 +150,12 @@ def run(filename):
             args = command['args']
             knob_value = 1
 
-            if c == 'box':
+            if c == 'mesh':
+                f = open(args[0], 'r')
+                mf = f.read()
+                for line in mf:
+                    print(line)
+            elif c == 'box':
                 if command['constants']:
                     reflect = command['constants']
                 add_box(tmp,
