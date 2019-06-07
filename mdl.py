@@ -336,6 +336,7 @@ def p_command_mesh(p):
                | MESH CO TEXT SYMBOL
                | MESH SYMBOL CO TEXT SYMBOL"""
     cmd = {'op':p[1], 'args' : [], 'cs':None, 'constants':None}
+    print(cmd)
     arg_start = 2
     if isinstance(p[2], str):
         cmd['constants'] = p[2]

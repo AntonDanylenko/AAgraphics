@@ -1,1 +1,2 @@
-mesh cube.obj
+constants shiny_purple 0.2 0.3 0.7 0.0 0.0 0.0 0.0 0.3 0.7
+mesh shiny_purple cube.obj
