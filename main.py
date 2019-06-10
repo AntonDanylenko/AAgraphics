@@ -1,4 +1,4 @@
-from script import run
+from script1 import run
 import sys
 
 if len(sys.argv) == 2:
