@@ -133,12 +133,10 @@ def run(filename):
                 except:
                     continue
             if c == 'mesh':
-                print("reached")
-                print args
-                f = open(args[0]+'.obj', 'r')
+                f = open(args[0], 'r')
                 mf = f.read()
                 for line in mf:
-                    print(line)
+                    print line
             if c == 'box':
                 try:
                     if command['constants']:
