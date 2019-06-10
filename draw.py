@@ -263,6 +263,20 @@ def generate_torus( cx, cy, cz, r0, r1, step ):
             points.append([x, y, z])
     return points
 
+def add_mesh(polygons, file):
+    points = generate_mesh(file)
+    
+
+def generate_mesh(file):
+    points = []
+    f = open(file, 'r')
+    mf = f.readlines()
+    for line in mf:
+        line = line.split()
+        if len(line) > 0 and line[0] == 'v':
+            points.append([float(line[1]), float(line[2]), float(line[3])])
+    f.close()
+    return points
 
 def add_circle( points, cx, cy, cz, r, step ):
     x0 = r + cx

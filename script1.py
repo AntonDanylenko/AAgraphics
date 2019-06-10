@@ -126,18 +126,21 @@ def run(filename):
             c = command['op']
             args = command['args']
             knob_value = 1
-            print (c)
             if 'knob' in command.keys() and command['knob'] != None:
                 try:
                     knob_value = frames[i][command['knob']]
                 except:
                     continue
+
             if c == 'mesh':
-                f = open(args[0], 'r')
-                mf = f.read()
-                for line in mf:
-                    print line
-            if c == 'box':
+                if command["constants"]:
+                    reflect = command['constants']
+                add_mesh(tmp, args[0])
+                matrix_mult(stack[-1],tmp)
+                draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                tmp = []
+                reflect = '.white'
+            elif c == 'box':
                 try:
                     if command['constants']:
                         reflect = command['constants']
