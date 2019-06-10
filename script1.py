@@ -132,6 +132,7 @@ def run(filename):
                 except:
                     continue
             if c == 'mesh':
+                print("reached")
                 f = open(args[0], 'r')
                 mf = f.read()
                 for line in mf:
