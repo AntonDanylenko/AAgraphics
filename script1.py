@@ -106,6 +106,7 @@ def run(filename):
 
     (name, num_frames) = first_pass(commands)
     frames = second_pass(commands, num_frames)
+    print(commands)
 
     for i in range(int(num_frames)):
         print i
@@ -133,7 +134,8 @@ def run(filename):
                     continue
             if c == 'mesh':
                 print("reached")
-                f = open(args[0], 'r')
+                print args
+                f = open(args[0]+'.obj', 'r')
                 mf = f.read()
                 for line in mf:
                     print(line)

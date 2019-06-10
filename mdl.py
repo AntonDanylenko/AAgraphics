@@ -331,22 +331,17 @@ def p_command_generate_rayfiles(p):
     commands.append({'op':p[1], 'args':None})
 
 def p_command_mesh(p):
-    """command : MESH CO TEXT
-               | MESH SYMBOL CO TEXT
-               | MESH CO TEXT SYMBOL
-               | MESH SYMBOL CO TEXT SYMBOL"""
+    """command : MESH TEXT TEXT
+               | MESH CO TEXT TEXT
+               | MESH SYMBOL CO TEXT TEXT
+               | MESH CO TEXT TEXT SYMBOL
+               | MESH SYMBOL CO TEXT TEXT SYMBOL"""
     cmd = {'op':p[1], 'args' : [], 'cs':None, 'constants':None}
-    print(cmd)
-    arg_start = 2
-    if isinstance(p[2], str):
+    arg_start = 3
+    if p[2] != ":":
         cmd['constants'] = p[2]
         arg_start+= 1
     cmd['args'].append(p[arg_start])
-    if len(p) == 4 and isinstance(p[3], str):
-        cmd['cs'] = p[3]
-    if len(p) == 5 and isinstance(p[4], str):
-        cmd['cs'] = p[4]
-    print(cmd)
     commands.append(cmd)
 
 def p_save_knobs(p):
