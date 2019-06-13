@@ -1,9 +1,9 @@
 push
 constants shiny_purple 0.2 0.3 0.7 0.0 0.0 0.0 0.0 0.3 0.7
 move 250 250 0
-scale 80 80 80
+scale 10 10 10
 rotate x 30
 rotate y 30
-mesh shiny_purple :MirrorBall.obj
+mesh shiny_purple :cube.obj
 display
-save MirrorBall.png
+save cube.png
