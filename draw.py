@@ -271,9 +271,14 @@ def add_mesh(polygons, file):
         line = line.strip().split()
         if len(line) > 0 and line[0] == 'f':
             vertices = line[1:]
-            p0 = int(vertices[0]) - 1
-            p1 = int(vertices[1]) - 1
-            p2 = int(vertices[2]) - 1
+            if '//' in vertices[0] or '/' in vertices[0]:
+                p0 = int(vertices[0][0]) - 1
+                p1 = int(vertices[1][0]) - 1
+                p2 = int(vertices[2][0]) - 1
+            else:
+                p0 = int(vertices[0]) - 1
+                p1 = int(vertices[1]) - 1
+                p2 = int(vertices[2]) - 1
             print p0, p1, p2
             add_polygon(polygons, points[p0][0], points[p0][1], points[p0][2],
                                points[p1][0], points[p1][1], points[p1][2],
