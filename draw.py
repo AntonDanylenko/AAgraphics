@@ -279,7 +279,6 @@ def add_mesh(polygons, file):
                 p0 = int(vertices[0]) - 1
                 p1 = int(vertices[1]) - 1
                 p2 = int(vertices[2]) - 1
-            print p0, p1, p2
             add_polygon(polygons, points[p0][0], points[p0][1], points[p0][2],
                                points[p1][0], points[p1][1], points[p1][2],
                                points[p2][0], points[p2][1], points[p2][2])
