@@ -280,9 +280,13 @@ def add_mesh(polygons, file):
                     p0 = int(vertices[0]) - 1
                     p1 = int(vertices[i]) - 1
                     p2 = int(vertices[i+1]) - 1
-                add_polygon(polygons, points[p0][0], points[p0][1], points[p0][2],
-                                   points[p1][0], points[p1][1], points[p1][2],
-                                   points[p2][0], points[p2][1], points[p2][2])
+                try:
+                    add_polygon(polygons, points[p0][0], points[p0][1], points[p0][2],
+                                       points[p1][0], points[p1][1], points[p1][2],
+                                       points[p2][0], points[p2][1], points[p2][2])
+                except IndexError:
+                    print("Vertex Index Out of Range")
+                    exit()
     f.close()
 
 
