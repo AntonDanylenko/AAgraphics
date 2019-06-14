@@ -2,7 +2,7 @@ from display import *
 from matrix import *
 from gmath import *
 
-def draw_scanline(x0, z0, x1, z1, y, screen, zbuffer, normal0, normal1):
+def draw_scanline(x0, z0, x1, z1, y, screen, zbuffer, normal0, normal1, view, ambient, light, symbols, reflect):
     print("DRAW SCANLINEEEEEEEEEEEEEEEEE")
 
     if x0 > x1:
@@ -37,7 +37,7 @@ def draw_scanline(x0, z0, x1, z1, y, screen, zbuffer, normal0, normal1):
         normal[1]+=b
         normal[2]+=c
 
-def scanline_convert(polygons, i, screen, zbuffer, normals):
+def scanline_convert(polygons, i, screen, zbuffer, normals, view, ambient, light, symbols, reflect):
     flip = False
     BOT = 0
     TOP = 2
@@ -100,7 +100,7 @@ def scanline_convert(polygons, i, screen, zbuffer, normals):
 
         #draw_line(int(x0), y, z0, int(x1), y, z1, screen, zbuffer, color)
         # if normal0[2] > 0 and normal1[2] > 0:
-            draw_scanline(int(x0), z0, int(x1), z1, y, screen, zbuffer, normal0, normal1)
+            draw_scanline(int(x0), z0, int(x1), z1, y, screen, zbuffer, normal0, normal1, view, ambient, light, symbols, reflect)
         x0+= dx0
         z0+= dz0
         x1+= dx1
@@ -135,7 +135,7 @@ def draw_polygons( polygons, screen, zbuffer, view, ambient, light, symbols, ref
                    calculate_vertex_normal(polygons,point+1),
                    calculate_vertex_normal(polygons,point+2)]
 
-        scanline_convert(polygons, point, screen, zbuffer, normals)
+        scanline_convert(polygons, point, screen, zbuffer, normals, view, ambient, light, symbols, reflect)
 
         # draw_line( int(polygons[point][0]),
         #            int(polygons[point][1]),
