@@ -4,7 +4,7 @@ from gmath import *
 
 def draw_scanline(x0, z0, x1, z1, y, screen, zbuffer, normal0, normal1):
     print("DRAW SCANLINEEEEEEEEEEEEEEEEE")
-    
+
     if x0 > x1:
         tx = x0
         tz = z0
@@ -99,7 +99,7 @@ def scanline_convert(polygons, i, screen, zbuffer, normals):
             normal1 = normals[MID][:]
 
         #draw_line(int(x0), y, z0, int(x1), y, z1, screen, zbuffer, color)
-        if normal0[2] > 0 and normal1[2] > 0:
+        # if normal0[2] > 0 and normal1[2] > 0:
             draw_scanline(int(x0), z0, int(x1), z1, y, screen, zbuffer, normal0, normal1)
         x0+= dx0
         z0+= dz0
