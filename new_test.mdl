@@ -4,6 +4,6 @@ move 250 250 0
 scale 10 10 10
 rotate x 30
 rotate y 30
-mesh shiny_purple :cube.obj
+mesh shiny_purple :MirrorBall.obj
 display
-save cube.png
+save MirrorBall.png
