@@ -116,3 +116,21 @@ def calculate_normal(polygons, i):
     N[2] = A[0] * B[1] - A[1] * B[0]
 
     return N
+
+def calculate_vertex_normal(polygons, i):
+
+    adj_polygons = []
+
+    for point, index in enumerate(polygons):
+        if point==polygons[i]:
+            adj_polygons.append(polygons[index-(index%3)])
+            adj_polygons.append(polygons[index-(index%3)+1])
+            adj_polygons.append(polygons[index-(index%3)+2])
+
+    vertex_normal = [0,0,0]
+    num_adj = len(adj_polygons)/3
+    for x in range(num_adj):
+        vertex_normal+=calculate_normal(adj_polygons,x*3)[:]
+    vertex_normal=vertex_normal[:]/num_adj
+
+    return vertex_normal
