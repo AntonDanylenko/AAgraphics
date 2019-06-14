@@ -1,10 +1,14 @@
+frames 51
+basename MirrorBall
 push
+light l0 1 1 1 255 0 0
+light l1 -1 1 1 255 0 255
+light l2 0 1 1 255 255 255
 constants shiny_purple 0.2 0.3 0.7 0.0 0.0 0.0 0.0 0.3 0.7
 constants shiny_white 0.1 0.3 0.7 0.1 0.3 0.7 0.1 0.3 0.7
 move 250 250 0
 scale 20 20 20
 rotate x 30
-rotate y 30
+rotate y 180 spinny
 mesh shiny_white :MirrorBall.obj
-display
-save MirrorBall.png
+vary spinny 0 50 0 1
