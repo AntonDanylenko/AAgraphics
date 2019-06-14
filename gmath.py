@@ -131,6 +131,6 @@ def calculate_vertex_normal(polygons, i):
     num_adj = len(adj_polygons)/3
     for x in range(num_adj):
         vertex_normal+=calculate_normal(adj_polygons,x*3)[:]
-    vertex_normal=vertex_normal[:]/num_adj
+    vertex_normal=[x/num_adj for x in vertex_normal[:]]
 
     return vertex_normal
