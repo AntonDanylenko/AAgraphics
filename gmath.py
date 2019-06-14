@@ -122,6 +122,10 @@ def calculate_normal(polygons, i):
     return N
 
 def calculate_vertex_normal(polygons, i):
+    print("#######################")
+    print("polygons[i]")
+    print(polygons[i])
+    print("#######################")
 
     adj_polygons = []
 
