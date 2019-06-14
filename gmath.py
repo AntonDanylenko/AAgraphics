@@ -137,4 +137,5 @@ def calculate_vertex_normal(polygons, i):
         vertex_normal+=calculate_normal(adj_polygons,x*3)[:]
     vertex_normal=[x/num_adj for x in vertex_normal[:]]
 
+    print("VERTEX NORMAL: ", vertex_normal)
     return vertex_normal
