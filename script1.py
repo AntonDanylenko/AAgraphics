@@ -72,13 +72,12 @@ def second_pass( commands, num_frames ):
     return frames
 
 def get_lights(commands):
-    lights = {}
+    lights = []
     for command in commands:
         c = command['op']
         args = command['args']
         if c == 'light':
-            lights[command[c]] = [args[0],args[1],args[2],args[3],args[4],args[5]]
-    print lights
+            lights.append( [[args[0],args[1],args[2]],[args[3],args[4],args[5]]] )
     return lights
 
 
@@ -101,12 +100,16 @@ def run(filename):
     ambient = [50,
                50,
                50]
-    light = [[0.5,
+
+    def_light = [[0.5,
               0.75,
               1],
              [255,
               255,
               255]]
+
+    if len(lights) == 0:
+        lights.append(def_light)
 
     color = [0, 0, 0]
     symbols['.white'] = ['constants',
@@ -146,7 +149,7 @@ def run(filename):
                     reflect = command['constants']
                 add_mesh(tmp, args[0])
                 matrix_mult(stack[-1],tmp)
-                draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                 tmp = []
                 reflect = '.white'
             elif c == 'box':
@@ -157,7 +160,7 @@ def run(filename):
                             knob_value * args[0], knob_value * args[1], knob_value * args[2],
                             knob_value * args[3], knob_value * args[4], knob_value * args[5])
                     matrix_mult( stack[-1], tmp )
-                    draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                    draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                     tmp = []
                     reflect = '.white'
                 except:
@@ -169,7 +172,7 @@ def run(filename):
                     add_sphere(tmp,
                                knob_value * args[0], knob_value * args[1], knob_value * args[2], knob_value * args[3], step_3d)
                     matrix_mult( stack[-1], tmp )
-                    draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                    draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                     tmp = []
                     reflect = '.white'
                 except:
@@ -181,7 +184,7 @@ def run(filename):
                     add_torus(tmp,
                               knob_value * args[0], knob_value * args[1], knob_value * args[2], knob_value * args[3], knob_value * args[4], step_3d)
                     matrix_mult( stack[-1], tmp )
-                    draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                    draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                     tmp = []
                     reflect = '.white'
                 except:
