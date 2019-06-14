@@ -3,6 +3,8 @@ from matrix import *
 from gmath import *
 
 def draw_scanline(x0, z0, x1, z1, y, screen, zbuffer, normal0, normal1):
+    print("DRAW SCANLINEEEEEEEEEEEEEEEEE")
+    
     if x0 > x1:
         tx = x0
         tz = z0
