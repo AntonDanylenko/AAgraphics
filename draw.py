@@ -25,6 +25,7 @@ def draw_scanline(x0, z0, x1, z1, y, screen, zbuffer, normal0, normal1):
 
     while x <= x1:
         color = get_lighting(normal, view, ambient, light, symbols, reflect )
+        print("Color: ", color)
         plot(screen, zbuffer, color, x, y, z)
         x+= 1
         z+= delta_z
