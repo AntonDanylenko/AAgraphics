@@ -71,6 +71,16 @@ def second_pass( commands, num_frames ):
                 frames[i][knob] = (args[3] - args[2]) * (i - args[0]) / (args[1] - args[0]) + args[2]
     return frames
 
+def get_lights(commands):
+    lights = {}
+    for command in commands:
+        c = command['op']
+        args = command['args']
+        if c == 'light':
+            lights[command[c]] = [args[0],args[1],args[2],args[3],args[4],args[5]]
+    print lights
+    return lights
+
 
 def run(filename):
     """
@@ -84,6 +94,7 @@ def run(filename):
         print "Parsing failed."
         return
 
+    lights = get_lights(commands)
     view = [0,
             0,
             1];
@@ -130,7 +141,6 @@ def run(filename):
                     knob_value = frames[i][command['knob']]
                 except:
                     continue
-
             if c == 'mesh':
                 if command["constants"]:
                     reflect = command['constants']
