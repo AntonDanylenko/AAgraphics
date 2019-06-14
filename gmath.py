@@ -125,8 +125,8 @@ def calculate_vertex_normal(polygons, i):
 
     adj_polygons = []
 
-    for point, index in enumerate(polygons):
-        if point==polygons[i]:
+    for index in range(len(polygons)):
+        if polygons[i]==polygons[index]:
             adj_polygons.append(polygons[index-(index%3)])
             adj_polygons.append(polygons[index-(index%3)+1])
             adj_polygons.append(polygons[index-(index%3)+2])
