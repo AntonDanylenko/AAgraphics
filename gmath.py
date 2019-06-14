@@ -135,6 +135,8 @@ def calculate_vertex_normal(polygons, i):
             adj_polygons.append(polygons[index-(index%3)+1])
             adj_polygons.append(polygons[index-(index%3)+2])
 
+    adj_polygons = adj_polygons[3:]
+    
     # print("ADJ_POLYGONS")
     # print(adj_polygons)
     # print("-----------------------------")
