@@ -124,9 +124,9 @@ def draw_polygons( polygons, screen, zbuffer, view, ambient, light, symbols, ref
     point = 0
     while point < len(polygons) - 2:
 
-        print("C_V_N():")
-        print(point)
-        print("-----------------------")
+        # print("C_V_N():")
+        # print(point)
+        # print("-----------------------")
         normals = [calculate_vertex_normal(polygons,point),
                    calculate_vertex_normal(polygons,point+1),
                    calculate_vertex_normal(polygons,point+2)]
