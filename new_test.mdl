@@ -1,7 +1,7 @@
 push
 constants shiny_purple 0.2 0.3 0.7 0.0 0.0 0.0 0.0 0.3 0.7
 move 250 250 0
-scale 20 20 20
+scale 80 80 80
 rotate x 30
 rotate y 30
 mesh shiny_purple :cube.obj
