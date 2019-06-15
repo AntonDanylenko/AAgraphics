@@ -60,7 +60,7 @@ def scanline_convert(polygons, i, screen, zbuffer, color):
         y+= 1
 
 def draw_scanline_phong(x0, z0, x1, z1, y, screen, zbuffer, normal0, normal1, view, ambient, light, symbols, reflect):
-    print("DRAW SCANLINEEEEEEEEEEEEEEEEE")
+    # print("DRAW SCANLINEEEEEEEEEEEEEEEEE")
 
     if x0 > x1:
         tx = x0
@@ -84,9 +84,9 @@ def draw_scanline_phong(x0, z0, x1, z1, y, screen, zbuffer, normal0, normal1, vi
 
     while x <= x1:
         color = get_lighting(normal, view, ambient, light, symbols, reflect )
-        print("###################")
-        print("Color: ", color)
-        print("###################")
+        # print("###################")
+        # print("Color: ", color)
+        # print("###################")
         plot(screen, zbuffer, color, x, y, z)
         x+= 1
         z+= delta_z
