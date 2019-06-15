@@ -149,7 +149,7 @@ def run(filename):
                     reflect = command['constants']
                 add_mesh(tmp, args[0])
                 matrix_mult(stack[-1],tmp)
-                draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
+                draw_polygons_phong(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                 tmp = []
                 reflect = '.white'
             elif c == 'box':
@@ -160,7 +160,7 @@ def run(filename):
                             knob_value * args[0], knob_value * args[1], knob_value * args[2],
                             knob_value * args[3], knob_value * args[4], knob_value * args[5])
                     matrix_mult( stack[-1], tmp )
-                    draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
+                    draw_polygons_phong(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                     tmp = []
                     reflect = '.white'
                 except:
@@ -172,7 +172,7 @@ def run(filename):
                     add_sphere(tmp,
                                knob_value * args[0], knob_value * args[1], knob_value * args[2], knob_value * args[3], step_3d)
                     matrix_mult( stack[-1], tmp )
-                    draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
+                    draw_polygons_phong(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                     tmp = []
                     reflect = '.white'
                 except:
@@ -184,7 +184,7 @@ def run(filename):
                     add_torus(tmp,
                               knob_value * args[0], knob_value * args[1], knob_value * args[2], knob_value * args[3], knob_value * args[4], step_3d)
                     matrix_mult( stack[-1], tmp )
-                    draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
+                    draw_polygons_phong(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                     tmp = []
                     reflect = '.white'
                 except:

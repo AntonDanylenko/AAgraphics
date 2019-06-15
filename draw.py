@@ -188,27 +188,7 @@ def draw_polygons( polygons, screen, zbuffer, view, ambient, light, symbols, ref
         if normal[2] > 0:
             color = get_lighting(normal, view, ambient, light, symbols, reflect )
             scanline_convert(polygons, point, screen, zbuffer, color)
-            # draw_line( int(polygons[point][0]),
-            #            int(polygons[point][1]),
-            #            polygons[point][2],
-            #            int(polygons[point+1][0]),
-            #            int(polygons[point+1][1]),
-            #            polygons[point+1][2],
-            #            screen, zbuffer, color)
-            # draw_line( int(polygons[point+2][0]),
-            #            int(polygons[point+2][1]),
-            #            polygons[point+2][2],
-            #            int(polygons[point+1][0]),
-            #            int(polygons[point+1][1]),
-            #            polygons[point+1][2],
-            #            screen, zbuffer, color)
-            # draw_line( int(polygons[point][0]),
-            #            int(polygons[point][1]),
-            #            polygons[point][2],
-            #            int(polygons[point+2][0]),
-            #            int(polygons[point+2][1]),
-            #            polygons[point+2][2],
-            #            screen, zbuffer, color)
+
         point+= 3
 
 def draw_polygons_phong( polygons, screen, zbuffer, view, ambient, light, symbols, reflect):
@@ -228,27 +208,6 @@ def draw_polygons_phong( polygons, screen, zbuffer, view, ambient, light, symbol
 
         scanline_convert_phong(polygons, point, screen, zbuffer, normals, view, ambient, light, symbols, reflect)
 
-        # draw_line( int(polygons[point][0]),
-        #            int(polygons[point][1]),
-        #            polygons[point][2],
-        #            int(polygons[point+1][0]),
-        #            int(polygons[point+1][1]),
-        #            polygons[point+1][2],
-        #            screen, zbuffer, color)
-        # draw_line( int(polygons[point+2][0]),
-        #            int(polygons[point+2][1]),
-        #            polygons[point+2][2],
-        #            int(polygons[point+1][0]),
-        #            int(polygons[point+1][1]),
-        #            polygons[point+1][2],
-        #            screen, zbuffer, color)
-        # draw_line( int(polygons[point][0]),
-        #            int(polygons[point][1]),
-        #            polygons[point][2],
-        #            int(polygons[point+2][0]),
-        #            int(polygons[point+2][1]),
-        #            polygons[point+2][2],
-        #            screen, zbuffer, color)
         point+= 3
 
 
