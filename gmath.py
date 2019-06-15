@@ -150,5 +150,5 @@ def calculate_vertex_normal(polygons, i):
         vertex_normal[2]+=temp_norm[2]
     vertex_normal=[x/num_adj for x in vertex_normal[:]]
 
-    print("VERTEX NORMAL: ", vertex_normal)
+    # print("VERTEX NORMAL: ", vertex_normal)
     return vertex_normal
