@@ -9,6 +9,6 @@ constants shiny_white 0.1 0.3 0.7 0.1 0.3 0.7 0.1 0.3 0.7
 move 250 250 0
 scale 20 20 20
 rotate x 30
-rotate y 180 spinny
+rotate y 360 spinny
 mesh shiny_white :MirrorBall.obj
 vary spinny 0 50 0 1
